@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {UserDetailsDTO} from "../../../../../model/UserDetailsDTO";
 import {UserDetailsService} from "../../../../../service/user-details.service";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
   selector: 'app-sign-up',
@@ -21,7 +22,7 @@ export class SignUpComponent implements OnInit {
         Validators.maxLength(16)]),
   });
 
-  constructor(private userDetailsService: UserDetailsService) {
+  constructor(private _snackBar: MatSnackBar,private userDetailsService: UserDetailsService) {
   }
 
   ngOnInit(): void {
@@ -38,10 +39,16 @@ export class SignUpComponent implements OnInit {
 
     this.userDetailsService.signUp(dataDto).subscribe(response => {
       console.log(response.code);
+      this.openSnackBar('Successfull','close');
     }, error => {
       console.log(error);
     })
+  }
 
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action,{
+      duration:3000
+    });
   }
 
 }
