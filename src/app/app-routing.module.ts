@@ -6,6 +6,7 @@ import {NotFoundPageComponent} from "./core/not-found-page/not-found-page.compon
 const routes: Routes = [
   {path: '', redirectTo: '/login', pathMatch: 'full'},
   {path: 'login', component: AuthContextComponent},
+  { path: 'dashboard', loadChildren: () => import('./modules/dashboard/dashboard.module').then(m => m.DashboardModule) },
   {path: '**', component: NotFoundPageComponent}
 ];
 

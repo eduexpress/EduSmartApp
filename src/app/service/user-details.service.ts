@@ -20,4 +20,11 @@ export class UserDetailsService {
       activeState: true
     });
   }
+
+  public login(email:string,password:string):Observable<any>{
+    return this.http.post('http://127.0.0.1:3000/api/v1/user/login',{
+      email: email,
+      password: password
+    });
+  }
 }
