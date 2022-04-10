@@ -9,6 +9,8 @@ import { SignUpComponent } from './core/auth/auth-context/inner-items/sign-up/si
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundPageComponent } from './core/not-found-page/not-found-page.component';
 import {MatTabsModule} from "@angular/material/tabs";
+import {MatInputModule} from "@angular/material/input";
+import {MatButtonModule} from "@angular/material/button";
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import {MatTabsModule} from "@angular/material/tabs";
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatTabsModule
+    MatTabsModule,
+    MatInputModule,
+    MatButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]
