@@ -11,7 +11,7 @@ export class UserDetailsService {
   constructor(private http:HttpClient) { }
 
   public signUp(dto:UserDetailsDTO):Observable<any>{
-    return this.http.post('http://localhost:6000/api/v1/user/sign-up',{
+    return this.http.post('http://127.0.0.1:3000/api/v1/user/sign-up',{
       email: dto.email,
       password: dto.password,
       fullName: dto.fullName,

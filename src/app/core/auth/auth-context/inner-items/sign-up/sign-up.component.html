@@ -18,6 +18,6 @@
     </mat-form-field>
   </div>
   <div class="col-12">
-    <button [disabled]="signUpForm.invalid" mat-button color="primary" mat-raised-button>Let's get started...</button>
+    <button [disabled]="signUpForm.invalid" mat-button color="primary" mat-raised-button (click)="signUp()">Let's get started...</button>
   </div>
 </form>
