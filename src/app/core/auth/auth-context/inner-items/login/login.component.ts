@@ -2,6 +2,9 @@ import {Component, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from "@angular/forms";
 import {MatSnackBar} from "@angular/material/snack-bar";
 import {UserDetailsService} from "../../../../../service/user-details.service";
+import {CookieService} from "ngx-cookie-service";
+import {LocalDataService} from "../../../../../service/local-data.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-login',
@@ -20,7 +23,7 @@ export class LoginComponent implements OnInit {
   });
 
 
-  constructor(private _snackBar: MatSnackBar, private userDetailsService: UserDetailsService) {
+  constructor(private router: Router, private localDataService: LocalDataService, private _snackBar: MatSnackBar, private userDetailsService: UserDetailsService) {
   }
 
   ngOnInit(): void {
@@ -31,9 +34,17 @@ export class LoginComponent implements OnInit {
       this.loginForm.get('email')?.value,
       this.loginForm.get('password')?.value
     ).subscribe(response => {
-      console.log(response);
+      this.localDataService.setCookie('userToken', response.token);
+      this.router.navigate(['/dashboard']);
+      this.openSnackBar(response.message, 'close');
     }, error => {
       console.log(error);
     })
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message, action, {
+      duration: 3000
+    });
   }
 }
