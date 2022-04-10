@@ -1,0 +1,27 @@
+.main-outer{
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*margin: 0 auto;*/
+}
+.inner{
+  width: 80vw;
+  height: 80vh;
+  -webkit-box-shadow: 2px 2px 13px 5px rgba(0,0,0,0.31);
+  box-shadow: 2px 2px 13px 5px rgba(0,0,0,0.31);
+  background-color: white;
+  padding: 20px;
+  display: flex;
+}
+.process{
+  flex: 1;
+}
+.bg-image-outer{
+  height: 100%;
+  width: 450px;
+  background-image: url("https://img.freepik.com/free-psd/happy-woman-pointing-with-her-right-hand-up_1154-281.jpg?t=st=1649562564~exp=1649563164~hmac=0eb43727a3352217707efb394fefafd341e0a02c40ee4ba6d4ff3124d1a770cf&w=360");
+  background-size: cover;
+  background-repeat: no-repeat;
+}

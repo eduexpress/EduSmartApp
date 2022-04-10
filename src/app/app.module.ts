@@ -8,6 +8,7 @@ import { LoginComponent } from './core/auth/auth-context/inner-items/login/login
 import { SignUpComponent } from './core/auth/auth-context/inner-items/sign-up/sign-up.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NotFoundPageComponent } from './core/not-found-page/not-found-page.component';
+import {MatTabsModule} from "@angular/material/tabs";
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { NotFoundPageComponent } from './core/not-found-page/not-found-page.comp
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
