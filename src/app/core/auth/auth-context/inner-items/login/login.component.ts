@@ -27,6 +27,14 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.isLogged();
+  }
+
+  private isLogged() {
+    return this.localDataService.isLogged().then(response => {// true
+      this.router.navigate(['/dashboard']);
+    }).catch(error => {// false
+    });
   }
 
   login() {

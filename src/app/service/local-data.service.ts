@@ -10,9 +10,24 @@ export class LocalDataService {
 
   public setCookie(key:string, data: any){
     this.cookieService.set(key,data,{
-      domain:'localhost:4200/login',
       expires:31
     });
+    this.getCookie(key);
+  }
+
+  public getCookie(key:string):any{
+    console.log(this.cookieService.get(key));
+    return this.cookieService.get(key);
+  }
+
+  public async isLogged():Promise<any>{
+    return new Promise((resolve,reject)=>{
+      if(this.getCookie('userToken')){
+        resolve(true);
+      }else{
+        reject(false);
+      }
+    })
   }
 
 }
